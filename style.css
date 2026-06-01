@@ -9,14 +9,12 @@ html{
 }
 
 body{
-    background:#fff;
-    font-family:'Segoe UI',sans-serif;
+    background:#ffffff;
     overflow-x:hidden;
+    font-family:"Segoe UI",sans-serif;
 }
 
-/* ===================== */
 /* SPLASH */
-/* ===================== */
 
 #splash-screen{
     position:fixed;
@@ -38,36 +36,39 @@ body{
     width:100%;
     height:100%;
     object-fit:contain;
+    background:#fff;
 }
 
 .open-btn{
 
     position:absolute;
+
     bottom:8%;
     left:50%;
+
     transform:translateX(-50%);
 
     border:none;
     cursor:pointer;
 
-    padding:16px 30px;
+    padding:16px 32px;
 
     border-radius:999px;
 
-    color:white;
+    color:#fff;
 
     font-size:1rem;
     font-weight:600;
 
     background:linear-gradient(
         135deg,
-        #0b5f4f,
-        #0f766e
+        #033b2e,
+        #0b5f4f
     );
 
     box-shadow:
-    0 0 15px rgba(15,118,110,.35),
-    0 10px 30px rgba(15,118,110,.25);
+    0 0 20px rgba(3,59,46,.3),
+    0 10px 35px rgba(3,59,46,.25);
 
     animation:glow 2.5s infinite;
 }
@@ -88,13 +89,11 @@ body{
 
 }
 
+/* CONTENIDO */
+
 #invitation-content{
     display:none;
 }
-
-/* ===================== */
-/* IMÁGENES */
-/* ===================== */
 
 .section{
     width:100%;
@@ -106,46 +105,51 @@ body{
     height:auto;
 }
 
-/* ===================== */
 /* CONTADOR */
-/* ===================== */
 
 .countdown-section{
 
+    background:#fff;
+
     padding:50px 20px;
+
     text-align:center;
-    background:#ffffff;
 }
 
 .countdown-section h2{
 
-    color:#064e3b;
-    margin-bottom:30px;
+    color:#033b2e;
+
     font-size:1.5rem;
+
     letter-spacing:2px;
-    font-weight:700;
+
+    margin-bottom:30px;
 }
 
 #countdown{
 
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:15px;
 
     max-width:500px;
+
     margin:auto;
 }
 
 .time-card{
 
-    background:white;
+    background:#fff;
 
     border-radius:24px;
 
-    padding:22px 12px;
+    padding:22px 10px;
 
     box-shadow:
-    0 10px 35px rgba(0,0,0,.08);
+    0 10px 30px rgba(0,0,0,.08);
 }
 
 .time-card span{
@@ -153,45 +157,49 @@ body{
     display:block;
 
     font-size:2.2rem;
+
     font-weight:800;
 
-    color:#064e3b;
+    color:#033b2e;
 }
 
 .time-card small{
 
-    color:#555;
-    font-size:.95rem;
+    color:#666;
 }
 
 #eventMessage{
 
     margin-top:25px;
 
-    color:#064e3b;
+    color:#033b2e;
 
-    font-size:1.2rem;
+    font-size:1.15rem;
+
     font-weight:700;
 }
 
-/* ===================== */
-/* FADE */
-/* ===================== */
+/* ANIMACIONES */
 
 .fade-section{
+
     opacity:0;
+
     transform:translateY(40px);
-    transition:all .9s ease;
+
+    transition:
+    opacity .9s ease,
+    transform .9s ease;
 }
 
 .fade-section.visible{
+
     opacity:1;
+
     transform:translateY(0);
 }
 
-/* ===================== */
-/* BOTONES INVISIBLES */
-/* ===================== */
+/* IMÁGENES CON BOTONES */
 
 .image-container{
     position:relative;
@@ -201,33 +209,47 @@ body{
     position:absolute;
     display:block;
     background:transparent;
+    cursor:pointer;
 }
 
-/* TEMPORAL */
+/* BOTÓN WAZE */
 
 .location-link{
-    left:10%;
-    width:80%;
-    height:7%;
-    top:70%;
+
+    left:14%;
+    width:72%;
+
+    top:89.2%;
+    height:4.7%;
 }
 
+/* BOTÓN CONFIRMACIÓN */
+
 .confirm-link{
-    left:10%;
-    width:80%;
-    height:7%;
-    top:83%;
+
+    left:16%;
+    width:68%;
+
+    top:79.5%;
+    height:5.2%;
 }
+
+/* DESKTOP */
 
 @media(min-width:768px){
 
     .section img,
     .image-container img{
+
         max-width:900px;
         margin:auto;
     }
 
     #countdown{
         grid-template-columns:repeat(4,1fr);
+    }
+
+    .time-card span{
+        font-size:2.5rem;
     }
 }
