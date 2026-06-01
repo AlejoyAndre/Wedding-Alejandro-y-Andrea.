@@ -1,98 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación de Boda</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invitación de Boda</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div id="splash-screen">
-        <img src="portada.png" alt="Portada" class="portada-img">
+<div id="splash-screen">
 
-        <button id="openInvitation" class="open-btn">
-            ♫ Abrir Invitación ♫
-        </button>
-    </div>
+    <img src="portada.png" alt="Portada" class="portada-img">
 
-    <main id="invitation-content">
+    <button id="openInvitation" class="open-btn">
+        ♫ Abrir Invitación ♫
+    </button>
 
-        <section class="section fade-section">
-            <img src="fecha.png" alt="Fecha">
-        </section>
+</div>
 
-        <section class="countdown-section fade-section">
+<main id="invitation-content">
 
-            <h2>FALTAN POCOS DÍAS</h2>
+    <!-- NUEVA PORTADA DENTRO DE LA INVITACIÓN -->
+    <section class="section fade-section">
+        <img src="portada.png" alt="Portada">
+    </section>
 
-            <div id="countdown">
+    <section class="section fade-section">
+        <img src="fecha.png" alt="Fecha">
+    </section>
 
-                <div class="time-card">
-                    <span id="days">00</span>
-                    <small>Días</small>
-                </div>
+    <section class="countdown-section fade-section">
 
-                <div class="time-card">
-                    <span id="hours">00</span>
-                    <small>Horas</small>
-                </div>
+        <h2>FALTAN POCOS DÍAS</h2>
 
-                <div class="time-card">
-                    <span id="minutes">00</span>
-                    <small>Minutos</small>
-                </div>
+        <div id="countdown">
 
-                <div class="time-card">
-                    <span id="seconds">00</span>
-                    <small>Segundos</small>
-                </div>
-
+            <div class="time-card">
+                <span id="days">00</span>
+                <small>Días</small>
             </div>
 
-            <div id="eventMessage"></div>
+            <div class="time-card">
+                <span id="hours">00</span>
+                <small>Horas</small>
+            </div>
 
-        </section>
+            <div class="time-card">
+                <span id="minutes">00</span>
+                <small>Minutos</small>
+            </div>
 
-        <section class="section fade-section">
-            <img src="happy toguether.png" alt="Happy Together">
-        </section>
+            <div class="time-card">
+                <span id="seconds">00</span>
+                <small>Segundos</small>
+            </div>
 
-        <section class="section fade-section">
-            <img src="codigo.png" alt="Código de Vestimenta">
-        </section>
+        </div>
 
-        <section class="section image-container fade-section">
+        <div id="eventMessage"></div>
 
-            <img src="lluvia de sobres.png" alt="Lluvia de Sobres">
+    </section>
 
-            <!-- Ver ubicación -->
-            <a
-                class="overlay-link location-link"
-                href="https://ul.waze.com/ul?place=ChIJR946dxGAP44RFJEYUh5q6o8&ll=4.85655030%2C-74.20117960&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ver ubicación">
-            </a>
+    <section class="section fade-section">
+        <img src="happy toguether.png" alt="Happy Together">
+    </section>
 
-            <!-- Confirmar asistencia -->
-            <a
-                class="overlay-link confirm-link"
-                href="https://docs.google.com/forms/d/e/1FAIpQLScvpvzkG9oHREQwN1w_dA4Xk_0W_-WmXp0yqSe0YKIFXY3WOA/viewform?usp=dialog"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Confirmar asistencia">
-            </a>
+    <section class="section fade-section">
+        <img src="codigo.png" alt="Código">
+    </section>
 
-        </section>
+    <section class="section image-container fade-section">
 
-    </main>
+        <img src="lluvia de sobres.png" alt="Lluvia de sobres">
 
-    <audio id="bgMusic" loop preload="auto">
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
+        <a
+            class="overlay-link location-link"
+            href="https://ul.waze.com/ul?place=ChIJR946dxGAP44RFJEYUh5q6o8&ll=4.85655030%2C-74.20117960&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+            target="_blank"
+            rel="noopener noreferrer">
+        </a>
 
-    <script src="script.js"></script>
+        <a
+            class="overlay-link confirm-link"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScvpvzkG9oHREQwN1w_dA4Xk_0W_-WmXp0yqSe0YKIFXY3WOA/viewform?usp=dialog"
+            target="_blank"
+            rel="noopener noreferrer">
+        </a>
+
+    </section>
+
+</main>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
 
 </body>
 </html>
