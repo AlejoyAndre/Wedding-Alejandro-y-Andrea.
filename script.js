@@ -6,8 +6,10 @@ const music = document.getElementById("bgMusic");
 openBtn.addEventListener("click", async () => {
 
     try{
+        music.volume = 0.7;
         await music.play();
-    }catch(error){
+    }
+    catch(error){
         console.log(error);
     }
 
@@ -16,6 +18,7 @@ openBtn.addEventListener("click", async () => {
     setTimeout(() => {
 
         splash.style.display = "none";
+
         content.style.display = "block";
 
         initializeAnimations();
@@ -29,9 +32,7 @@ openBtn.addEventListener("click", async () => {
 
 });
 
-/* ===================== */
 /* CONTADOR */
-/* ===================== */
 
 const weddingDate = new Date(
     "2026-09-25T15:30:00-05:00"
@@ -48,28 +49,37 @@ const eventMessage = document.getElementById("eventMessage");
 function updateCountdown(){
 
     const now = new Date();
+
     const diff = weddingDate - now;
 
     if(diff > 0){
 
-        const d = Math.floor(diff / (1000*60*60*24));
-        const h = Math.floor((diff/(1000*60*60)) % 24);
-        const m = Math.floor((diff/(1000*60)) % 60);
-        const s = Math.floor((diff/1000) % 60);
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-        days.textContent = d;
-        hours.textContent = h;
-        minutes.textContent = m;
-        seconds.textContent = s;
+        const h = Math.floor(
+            (diff / (1000 * 60 * 60)) % 24
+        );
 
-        eventMessage.innerHTML = "";
+        const m = Math.floor(
+            (diff / (1000 * 60)) % 60
+        );
+
+        const s = Math.floor(
+            (diff / 1000) % 60
+        );
+
+        days.textContent = String(d).padStart(2,"0");
+        hours.textContent = String(h).padStart(2,"0");
+        minutes.textContent = String(m).padStart(2,"0");
+        seconds.textContent = String(s).padStart(2,"0");
 
     }else{
 
         countdown.style.display = "none";
 
         const elapsedDays = Math.floor(
-            Math.abs(diff)/(1000*60*60*24)
+            Math.abs(diff) /
+            (1000 * 60 * 60 * 24)
         );
 
         if(elapsedDays === 0){
@@ -83,15 +93,16 @@ function updateCountdown(){
             `❤️ Han pasado ${elapsedDays} días desde nuestro gran día ❤️`;
 
         }
+
     }
+
 }
 
 updateCountdown();
+
 setInterval(updateCountdown,1000);
 
-/* ===================== */
-/* ANIMACIONES */
-/* ===================== */
+/* FADE IN */
 
 function initializeAnimations(){
 
@@ -102,7 +113,10 @@ function initializeAnimations(){
             entries.forEach(entry => {
 
                 if(entry.isIntersecting){
-                    entry.target.classList.add("visible");
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
                 }
 
             });
@@ -115,9 +129,8 @@ function initializeAnimations(){
     );
 
     document
-    .querySelectorAll(".fade-section")
-    .forEach(section=>{
-        observer.observe(section);
-    });
-
+        .querySelectorAll(".fade-section")
+        .forEach(section => {
+            observer.observe(section);
+        });
 }
