@@ -6,96 +6,118 @@ const music = document.getElementById("bgMusic");
 openBtn.addEventListener("click", async () => {
 
     try{
-        music.volume = 0.6;
         await music.play();
-    }catch(e){
-        console.log("Audio iniciado mediante interacción del usuario.");
+    }catch(error){
+        console.log(error);
     }
 
     splash.classList.add("hide");
 
     setTimeout(() => {
+
         splash.style.display = "none";
         content.style.display = "block";
-        initAnimations();
-    }, 1200);
+
+        initializeAnimations();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },1200);
+
 });
 
-/* ==========================
-   CONTADOR
-========================== */
+/* ===================== */
+/* CONTADOR */
+/* ===================== */
 
-const weddingDate = new Date("2026-09-25T15:30:00-05:00");
+const weddingDate = new Date(
+    "2026-09-25T15:30:00-05:00"
+);
 
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minutesEl = document.getElementById("minutes");
-const secondsEl = document.getElementById("seconds");
+const days = document.getElementById("days");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
 
 const countdown = document.getElementById("countdown");
-const message = document.getElementById("eventMessage");
+const eventMessage = document.getElementById("eventMessage");
 
-function updateCountdown() {
+function updateCountdown(){
 
     const now = new Date();
-    const difference = weddingDate - now;
+    const diff = weddingDate - now;
 
-    if (difference > 0) {
+    if(diff > 0){
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((difference / (1000 * 60)) % 60);
-        const seconds = Math.floor((difference / 1000) % 60);
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff/(1000*60*60)) % 24);
+        const m = Math.floor((diff/(1000*60)) % 60);
+        const s = Math.floor((diff/1000) % 60);
 
-        daysEl.textContent = String(days).padStart(2, "0");
-        hoursEl.textContent = String(hours).padStart(2, "0");
-        minutesEl.textContent = String(minutes).padStart(2, "0");
-        secondsEl.textContent = String(seconds).padStart(2, "0");
+        days.textContent = d;
+        hours.textContent = h;
+        minutes.textContent = m;
+        seconds.textContent = s;
 
-        message.innerHTML = "";
+        eventMessage.innerHTML = "";
 
-    } else {
-
-        const elapsed = Math.floor(
-            Math.abs(difference) / (1000 * 60 * 60 * 24)
-        );
+    }else{
 
         countdown.style.display = "none";
 
-        if (elapsed === 0) {
-            message.innerHTML =
-                "❤️ Hoy celebramos nuestro gran día ❤️";
-        } else {
-            message.innerHTML =
-                `❤️ Han pasado ${elapsed} días desde nuestro gran día ❤️`;
+        const elapsedDays = Math.floor(
+            Math.abs(diff)/(1000*60*60*24)
+        );
+
+        if(elapsedDays === 0){
+
+            eventMessage.innerHTML =
+            "❤️ Hoy celebramos nuestro gran día ❤️";
+
+        }else{
+
+            eventMessage.innerHTML =
+            `❤️ Han pasado ${elapsedDays} días desde nuestro gran día ❤️`;
+
         }
     }
 }
 
 updateCountdown();
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 
-/* ==========================
-   FADE IN
-========================== */
+/* ===================== */
+/* ANIMACIONES */
+/* ===================== */
 
-function initAnimations(){
+function initializeAnimations(){
 
-    const observer = new IntersectionObserver((entries)=>{
+    const observer = new IntersectionObserver(
 
-        entries.forEach(entry=>{
+        entries => {
 
-            if(entry.isIntersecting){
-                entry.target.classList.add("visible");
-            }
+            entries.forEach(entry => {
 
-        });
+                if(entry.isIntersecting){
+                    entry.target.classList.add("visible");
+                }
 
-    },{
-        threshold:0.15
-    });
+            });
 
-    document.querySelectorAll(".fade-section").forEach(section=>{
+        },
+
+        {
+            threshold:0.15
+        }
+    );
+
+    document
+    .querySelectorAll(".fade-section")
+    .forEach(section=>{
         observer.observe(section);
     });
+
 }
