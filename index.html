@@ -1,13 +1,123 @@
-<section class="section image-container fade-section">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <img src="happy toguether.png" alt="Happy Together">
+<title>Alejandro & Andrea</title>
 
-    <a
-        class="overlay-link location-link"
-        href="https://ul.waze.com/ul?place=ChIJR946dxGAP44RFJEYUh5q6o8&ll=4.85655030%2C-74.20117960&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Ver ubicación">
-    </a>
+<link rel="stylesheet" href="style.css">
+</head>
 
-</section>
+<body>
+
+<!-- PANTALLA INICIAL -->
+
+<div id="splash-screen">
+
+    <img src="portada.png" alt="Portada" class="portada-img">
+
+    <button id="openInvitation" class="open-btn">
+        ♫ Abrir Invitación ♫
+    </button>
+
+</div>
+
+<!-- CONTENIDO -->
+
+<main id="invitation-content">
+
+    <!-- PORTADA NUEVAMENTE -->
+
+    <section class="section fade-section">
+        <img src="portada.png" alt="Portada">
+    </section>
+
+    <!-- FECHA -->
+
+    <section class="section fade-section">
+        <img src="fecha.png" alt="Fecha">
+    </section>
+
+    <!-- CONTADOR -->
+
+    <section class="countdown-section fade-section">
+
+        <h2>FALTAN POCOS DÍAS</h2>
+
+        <div id="countdown">
+
+            <div class="time-card">
+                <span id="days">00</span>
+                <small>Días</small>
+            </div>
+
+            <div class="time-card">
+                <span id="hours">00</span>
+                <small>Horas</small>
+            </div>
+
+            <div class="time-card">
+                <span id="minutes">00</span>
+                <small>Minutos</small>
+            </div>
+
+            <div class="time-card">
+                <span id="seconds">00</span>
+                <small>Segundos</small>
+            </div>
+
+        </div>
+
+        <div id="eventMessage"></div>
+
+    </section>
+
+    <!-- HAPPY TOGUETHER + WAZE -->
+
+    <section class="section image-container fade-section">
+
+        <img src="happy toguether.png" alt="Happy Together">
+
+        <a
+            class="overlay-link location-link"
+            href="https://ul.waze.com/ul?place=ChIJR946dxGAP44RFJEYUh5q6o8&ll=4.85655030%2C-74.20117960&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ver ubicación">
+        </a>
+
+    </section>
+
+    <!-- CODIGO -->
+
+    <section class="section fade-section">
+        <img src="codigo.png" alt="Código">
+    </section>
+
+    <!-- LLUVIA DE SOBRES + FORMULARIO -->
+
+    <section class="section image-container fade-section">
+
+        <img src="lluvia de sobres.png" alt="Lluvia de Sobres">
+
+        <a
+            class="overlay-link confirm-link"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScvpvzkG9oHREQwN1w_dA4Xk_0W_-WmXp0yqSe0YKIFXY3WOA/viewform?usp=dialog"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Confirmar asistencia">
+        </a>
+
+    </section>
+
+</main>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
